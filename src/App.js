@@ -1,12 +1,17 @@
 import './App.css';
-import MainTable from "./components/MainTable/MainTable";
+import Card from "./components/Card/Card";
+import React from "react";
+import {Provider} from "react-redux";
+import {store} from "./store";
 
 function App() {
-  return (
-    <div className="App">
-        <MainTable/>
-    </div>
-  );
+    return (
+        <Provider store={store}>
+        <div className="App">
+            <Card/>
+        </div>
+        </Provider>
+    );
 }
 
 export default App;

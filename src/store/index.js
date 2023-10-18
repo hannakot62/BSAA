@@ -1,12 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
-import {subjectsReducer} from "./reducers/subjectsReducer";
-import {teachersReducer} from "./reducers/teachersReducer";
+import teachersReducer from "./slices/teachersSlice";
+import thunk from "redux-thunk";
 
 
-export const store = configureStore({reducer:{
-    subjects: subjectsReducer,
-    teachers: teachersReducer
-}})
+export const store = configureStore({
+    reducer: {
+        teachers: teachersReducer
+    },
+    middleware: [thunk]
+})
+
 
 
 
