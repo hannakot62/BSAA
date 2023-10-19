@@ -1,0 +1,10 @@
+*{
+    font-family: system-ui;
+}
+:root{
+    --dark-blue: #3c4b64;
+    --gray-border: #dee2e6;
+    --dark-gray-border: #cfd3d9;
+    --light-blue-header:  #e7f1ff;
+    --light-blue-bg: #f5fdff;
+}

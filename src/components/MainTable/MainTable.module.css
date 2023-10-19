@@ -1,0 +1,22 @@
+.table{
+    width: 100%;
+    border: 1px solid var(--gray-border);
+    border-collapse: collapse;
+}
+.table thead th{
+    border: 1px solid var(--gray-border);
+    border-bottom: 2px solid var(--dark-blue);
+    height: 45px;
+    color: var(--dark-blue);
+    font-weight: bold;
+}
+.table tbody tr{
+    height: 45px;
+}
+.table tbody tr td{
+    border: 1px solid var(--gray-border);
+    text-align: center;
+}
+.table tbody tr:nth-child(odd) {
+    background-color: var(--light-blue-bg);
+}

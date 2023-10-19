@@ -6,7 +6,7 @@ export const fetchSubjects = () => {
         fetch("https://bgaa.by/test")
             .then(response => response.json())
             .then(json => {
-                dispatch(getTeachers(json.data))
+                dispatch(getSubjects(json.data))
             })
     }
 }
