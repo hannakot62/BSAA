@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import style from './MainTable.module.css'
-import {subjectsSlice} from "../../store/slices/subjectsSlice";
 import {useSelector} from "react-redux";
 
 export default function MainTable(props) {
@@ -69,7 +68,7 @@ export default function MainTable(props) {
                 </tr>
             }
             <tr>
-                <td>Примечание <span>(для составления расписания)</span></td>
+                <td>Примечание<br/><span>(для составления расписания)</span></td>
                 <td></td>
                 <td><textarea/></td>
             </tr>

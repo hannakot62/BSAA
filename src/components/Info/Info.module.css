@@ -3,11 +3,11 @@
     width: 100%;
     min-height: 70px;
     display: flex;
+    padding: 2px;
     flex-direction: column;
     justify-content: space-around;
-    padding: 2px;
-    border-bottom: 1px solid var(--dark-gray-border);
-margin-bottom: 10px;
+    border-bottom: 1.5px solid var(--dark-gray-border);
+    margin-bottom: 10px;
 }
 .table tbody tr{
     display: flex;
@@ -15,10 +15,34 @@ margin-bottom: 10px;
     width: 100%;
     flex-wrap: wrap;
 }
-.table tbody tr td{
-    flex: 1
-}
+/*.table tbody tr td{*/
+/*    flex: 1*/
+/*}*/
 .header{
     color: var(--dark-blue);
     font-weight:bold;
+}
+
+.table tbody tr td:nth-child(odd) {
+    width: 38%;
+}
+.table tbody tr td:nth-child(even) {
+    width: 11%;
+}
+
+@media (max-width: 477px) {
+    .table tbody tr {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .table tbody tr td:nth-child(odd) {
+        width: 100%;
+    }
+}
+@media (max-width: 298px) {
+    .table td{
+        font-size: 0.7em;
+    }
 }

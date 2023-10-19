@@ -3,15 +3,19 @@
     border: 1px solid var(--gray-border);
     border-collapse: collapse;
 }
-.table thead th{
+.table thead tr th{
     border: 1px solid var(--gray-border);
     border-bottom: 2px solid var(--dark-blue);
     height: 45px;
     color: var(--dark-blue);
     font-weight: bold;
 }
+.table thead tr{
+    width: 100%;
+}
 .table tbody tr{
-    height: 45px;
+    height: 50px;
+    width: 100%;
 }
 .table tbody tr td{
     border: 1px solid var(--gray-border);
@@ -19,4 +23,40 @@
 }
 .table tbody tr:nth-child(odd) {
     background-color: var(--light-blue-bg);
+}
+.table tbody tr td:nth-child(1),
+.table thead tr th:nth-child(1){
+    width: 40%;
+}
+.table tbody tr td:nth-child(2),
+.table thead tr th:nth-child(2){
+    width: 10%;
+}
+
+.table td span{
+    font-size: 0.7em;
+}
+.table tbody tr:last-child{
+    height: 60px;
+}
+.table select{
+    width: 100%;
+}
+
+@media (max-width: 407px) {
+    .table th, .table td{
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 317px) {
+    .table th, .table td, .table select{
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 298px) {
+    .table th, .table td, .table select{
+        font-size: 0.5em;
+    }
 }
