@@ -41,13 +41,13 @@
     height: 60px;
 }
 .table select{
-    width: 96%;
+    width: 97%;
     padding: 9px 2px;
     text-align: center;
 }
 
 .flex select{
-    width: 81%;
+    width: 84%;
     margin-right: 2px;
 }
 
@@ -56,23 +56,6 @@
 }
 
 
-@media (max-width: 407px) {
-    .table th, .table td{
-        font-size: smaller;
-    }
-}
-
-@media (max-width: 317px) {
-    .table th, .table td, .table select{
-        font-size: 0.7em;
-    }
-}
-
-@media (max-width: 298px) {
-    .table th, .table td, .table select{
-        font-size: 0.5em;
-    }
-}
 
 .fillBtn{
     background-color: var(--dark-blue);
@@ -104,4 +87,34 @@
 
 .table button:hover{
     cursor: pointer;
+}
+
+
+@media (max-width: 450px) {
+    .fillBtn {
+        width: 30px;
+        height: 30px;
+    }
+    .fillBtn .svgContainer{
+        height: auto;
+    }
+}
+
+
+@media (max-width: 407px) {
+    .table th, .table td{
+        font-size: smaller;
+    }
+}
+
+@media (max-width: 317px) {
+    .table th, .table td, .table select{
+        font-size: 0.7em;
+    }
+}
+
+@media (max-width: 298px) {
+    .table th, .table td, .table select{
+        font-size: 0.5em;
+    }
 }

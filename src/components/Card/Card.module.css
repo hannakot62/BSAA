@@ -1,5 +1,4 @@
 .container{
-
     margin: 15px;
     padding: 10px;
     max-width: 700px;
@@ -22,7 +21,27 @@
     border-bottom: 1.5px solid var(--dark-gray-border);
 }
 
+.svgContainer{
+    width: 20px;
+    height: 20px;
+    margin-right: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+
+@media (max-width: 522px) {
+    .svgContainer{
+        display: none;
+    }
+    .svgContainer svg{
+        display: none;
+    }
+    .svgContainer svg g{
+        display: none;
+    }
+}
 @media (max-width: 335px) {
     .container{
         padding: 2px;
@@ -33,14 +52,4 @@
     .header{
         font-size: 0.8em;
     }
-}
-
-
-.svgContainer{
-    width: 20px;
-    height: 20px;
-    margin-right: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }

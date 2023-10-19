@@ -15,9 +15,7 @@
     width: 100%;
     flex-wrap: wrap;
 }
-/*.table tbody tr td{*/
-/*    flex: 1*/
-/*}*/
+
 .header{
     color: var(--dark-blue);
     font-weight:bold;
