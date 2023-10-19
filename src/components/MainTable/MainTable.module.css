@@ -40,10 +40,35 @@
 .table tbody tr:last-child{
     height: 60px;
 }
-.table select{
+.table select {
     width: 97%;
-    padding: 9px 2px;
+    padding: 9px 20px 9px 2px;
     text-align: center;
+    border: 1px solid var(--dark-gray-border);
+    border-radius: 3px;
+
+    /*background: transparent;*/
+    /*appearance: none;*/
+    /*-moz-appearance: none;*/
+    /*-webkit-appearance: none;*/
+    /*position: relative;*/
+
+}
+/*.table select::after {*/
+/*    content: '\25bc';*/
+/*    color: var(--dark-gray-border);*/
+/*    position: absolute;*/
+/*    top: 50%;*/
+/*    right: 20px;*/
+/*    transform: translateY(-50%);*/
+/*}*/
+
+.table option{
+    padding: 9px 2px;
+}
+.table option:hover{
+    background-color: var(--light-blue-header);
+    cursor: pointer;
 }
 
 .flex select{

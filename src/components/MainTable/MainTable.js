@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, {useCallback, useState} from "react";
 import style from './MainTable.module.css'
 import {useSelector} from "react-redux";
 import Plus from "../svgs/Plus";
@@ -6,11 +6,41 @@ import FillTheList from "../svgs/FillTheList";
 
 export default function MainTable(props) {
     const subject = props.subject
+    const setLectureTeacher = props.setLectureTeacher
+    const setLaboratoryTeacher = props.setLaboratoryTeacher
+    const setPracticTeacher = props.setPracticTeacher
+    const setSeminarTeacher = props.setSeminarTeacher
+    const setExTeacher = props.setExTeacher
+
     const teachers = useSelector(state => state.teachers.teachers)
     const teachersOptions = teachers.map(teacher => <option key={teacher.id} value={teacher.id}>{teacher.name}</option>)
-    teachersOptions.push(<option key={subject.uniqueId + teachers[0].id} value={0} selected={true}>Вакансия</option>)
+    teachersOptions.push(<option key={subject.uniqueId + teachers[0].id} value={'0'} selected={true}>Вакансия</option>)
 
     const [additionalInfo, setAdditionalInfo] = useState(subject.additionalInfo)
+    const [activeTeacher, setActiveTeacher] = useState('0')
+
+    const [labs, setLabs] = useState('0')
+    const [pract, setPract] = useState('0')
+    const [sem, setSem] = useState('0')
+    const [ex, setEx] = useState('0')
+
+    const handleActiveTeacher = useCallback(() => {
+        if (activeTeacher !== "0") {
+            if(subject.lecturesHours!=="0") setLectureTeacher(activeTeacher)
+            if(subject.practicHours!=="0") setPracticTeacher(activeTeacher)
+            if(subject.laboratoryHours!=="0") setLaboratoryTeacher(activeTeacher)
+            if(subject.seminarHours!=="0") setSeminarTeacher(activeTeacher)
+
+            setExTeacher(activeTeacher)
+
+            setLabs(activeTeacher);
+            setPract(activeTeacher);
+            setSem(activeTeacher);
+            setEx(activeTeacher)
+
+
+        }
+    }, [activeTeacher])
 
     return (
         <table className={style.table}>
@@ -39,10 +69,15 @@ export default function MainTable(props) {
                 <td>{subject.lecturesHours}</td>
                 <td>
                     <div className={style.flex}>
-                        <select disabled={subject.lecturesHours === "0"}>
+                        <select disabled={subject.lecturesHours === "0"}
+                                value={subject.lecturesHours === "0" ? "0" : activeTeacher}
+                                onChange={(e) => {
+                                    setActiveTeacher(e.target.value)
+                                    setLectureTeacher(e.target.value)
+                                }}>
                             {teachersOptions}
                         </select>
-                        <button className={style.fillBtn}>
+                        <button className={style.fillBtn} onClick={() => handleActiveTeacher()}>
                             <div className={style.svgContainer}>
                                 <FillTheList/>
                             </div>
@@ -55,7 +90,12 @@ export default function MainTable(props) {
                 <td>Лабораторные работы</td>
                 <td>{subject.laboratoryHours}</td>
                 <td>
-                    <select disabled={subject.laboratiryHours === "0"}>
+                    <select disabled={subject.laboratoryHours === "0"}
+                            value={subject.laboratoryHours === "0" ? "0" : labs}
+                            onChange={(e) => {
+                                setLabs(e.target.value)
+                                setLaboratoryTeacher(e.target.value)
+                            }}>
                         {teachersOptions}
                     </select>
                 </td>
@@ -65,7 +105,11 @@ export default function MainTable(props) {
                 <td>Практические</td>
                 <td>{subject.practicHours}</td>
                 <td>
-                    <select disabled={subject.practicHours === "0"}>
+                    <select disabled={subject.practicHours === "0"} value={subject.practicHours === "0" ? "0" : pract}
+                            onChange={(e) => {
+                                setPract(e.target.value)
+                                setPracticTeacher(e.target.value)
+                            }}>
                         {teachersOptions}
                     </select>
                 </td>
@@ -75,7 +119,11 @@ export default function MainTable(props) {
                 <td>Семинарские</td>
                 <td>{subject.seminarHours}</td>
                 <td>
-                    <select disabled={subject.seminarHours === "0"}>
+                    <select disabled={subject.seminarHours === "0"} value={subject.seminarHours === "0" ? "0" : sem}
+                            onChange={(e) => {
+                                setSem(e.target.value)
+                                setSeminarTeacher(e.target.value)
+                            }}>
                         {teachersOptions}
                     </select>
                 </td>
@@ -86,7 +134,10 @@ export default function MainTable(props) {
                     <td>{subject.exam ? "Экзамен" : "Зачёт"}</td>
                     <td></td>
                     <td>
-                        <select>
+                        <select onChange={(e) => {
+                            setEx(e.target.value)
+                            setExTeacher(e.target.value)
+                        }} value={ex}>
                             {teachersOptions}
                         </select>
                     </td>
