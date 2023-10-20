@@ -37,8 +37,6 @@ export default function MainTable(props) {
             setPract(activeTeacher);
             setSem(activeTeacher);
             setEx(activeTeacher)
-
-
         }
     }, [activeTeacher])
 

@@ -17,6 +17,7 @@
     height: 50px;
     width: 100%;
 }
+
 .table tbody tr td{
     border: 1px solid var(--gray-border);
     text-align: center;
@@ -94,8 +95,8 @@
 }
 
 .svgContainer{
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
 }
 
 .flex{
@@ -114,6 +115,42 @@
     cursor: pointer;
 }
 
+.table .inputTd{
+    padding: 0;
+}
+.table input{
+    height: 53px;
+    width: 97%;
+    margin: 0;
+    border: 0.1px solid var(--dark-gray-border);
+    text-align: center;
+}
+.deleteBtn{
+    background-color: white;
+    border: none;
+}
+@media (max-width: 600px) {
+    .table input {
+        width: 90%;
+    }
+}
+
+@media (max-width: 553px) {
+    .deleteBtn .svgContainer{
+        width: 15px;
+        height: 15px;
+    }
+    
+}
+@media (max-width: 541px) {
+    .thead2 th{
+        font-size: 0.7em;
+    }
+    .tbody2{
+        font-size: 0.9em;
+    }
+}
+
 
 @media (max-width: 450px) {
     .fillBtn {
@@ -124,11 +161,27 @@
         height: auto;
     }
 }
-
+@media (max-width: 421px) {
+    .tbody2{
+        font-size: 0.7em;
+    }
+    .tbody2 span{
+        font-size: 0.7em;
+    }
+}
 
 @media (max-width: 407px) {
     .table th, .table td{
         font-size: smaller;
+    }
+}
+@media (max-width: 342px) {
+    .thead2 th{
+        font-size: 0.6em;
+    }
+    .thead2 .svgContainer{
+        width: 10px;
+        height: 10px;
     }
 }
 
