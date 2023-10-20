@@ -4,18 +4,15 @@ import {fetchTeachers} from "../../store/slices/teachersSlice";
 import {fetchSubjects} from "../../store/slices/subjectsSlice";
 import Card from "../Card/Card";
 
-export default function Container(){
+export default function Container() {
     const dispatch = useDispatch()
 
-    useEffect(()=> {
+    useEffect(() => {
         dispatch(fetchTeachers());
         dispatch(fetchSubjects())
-    },[])
+    }, [])
 
-    const subjects  = useSelector(state => state.subjects.subjects)
-console.log(subjects)
-   const cards =  subjects.map(subject=><Card subject={subject} key={subject.uniqueId}/>)
-    return (
-        <div>{cards}</div>
-    )
+    const subjects = useSelector(state => state.subjects.subjects)
+    const cards = subjects.map(subject => <Card subject={subject} key={subject.uniqueId}/>)
+    return (<div>{cards}</div>)
 }

@@ -29,8 +29,8 @@ export default function MainTableTwoSubgroups(props) {
     const [sem2, setSem2] = useState('')
     const [ex2, setEx2] = useState('')
 
-    const [countS1, setCountS1] = useState(subject.podgroups[0].countStudents)
-    const [countS2, setCountS2] = useState(subject.podgroups[1].countStudents)
+    const [countS1, setCountS1] = useState(Math.ceil(+subject.studentsNumber / 2))
+    const [countS2, setCountS2] = useState(subject.studentsNumber - countS1)
 
     const [podgroup1, setPodgroup1] = useState(subject.podgroups[0])
     const [podgroup2, setPodgroup2] = useState(subject.podgroups[1])
@@ -45,7 +45,6 @@ export default function MainTableTwoSubgroups(props) {
         }
     }, [activeTeacher1])
 
-
     const handleActiveTeacher2 = useCallback(() => {
         if (activeTeacher2 !== "") {
             if (subject.practicHours !== "0") setPract2(activeTeacher2)
@@ -55,6 +54,12 @@ export default function MainTableTwoSubgroups(props) {
             setEx2(activeTeacher2)
         }
     }, [activeTeacher2])
+
+    const handleDeleteSubgroup = useCallback(() => {
+            setPodgroups([{}])
+        }, []
+    );
+
 
     useEffect(() => {
         const podgroup1 = {
@@ -108,7 +113,7 @@ export default function MainTableTwoSubgroups(props) {
                 <th>
                     <div className={style.flex}>
                         Подгруппа 2
-                        <button className={style.deleteBtn}>
+                        <button className={style.deleteBtn} onClick={() => handleDeleteSubgroup()}>
                             <div className={style.svgContainer}>
                                 <Delete/>
                             </div>
@@ -251,9 +256,11 @@ export default function MainTableTwoSubgroups(props) {
                 <td></td>
                 <td className={style.inputTd}><input value={countS1} onChange={(e) => {
                     setCountS1(e.target.value)
+                    setCountS2(subject.studentsNumber - e.target.value)
                 }}/></td>
                 <td className={style.inputTd}><input value={countS2} onChange={(e) => {
                     setCountS2(e.target.value)
+                    setCountS1(subject.studentsNumber - e.target.value)
                 }}/></td>
             </tr>
 

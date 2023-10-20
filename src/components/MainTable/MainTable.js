@@ -31,6 +31,11 @@ export default function MainTable(props) {
         }
     }, [activeTeacher])
 
+    const handleAddSubgroup = useCallback(() => {
+        setPodgroups([{}, {}])
+    }, [])
+
+
     useEffect(() => {
         const podgroup = {
             countStudents: subject.studentsNumber,
@@ -63,7 +68,7 @@ export default function MainTable(props) {
                 <th>
                     <div className={style.flex}>
                         Преподаватель
-                        <button className={style.addSubgroup}>
+                        <button className={style.addSubgroup} onClick={() => handleAddSubgroup()}>
                             <div className={style.svgContainer}>
                                 <Plus/>
                             </div>
